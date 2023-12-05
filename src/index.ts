@@ -26,8 +26,7 @@ app.get("/teacher/:name/:age", (req: Request, res: Response) => {
 });
 
 app.get("/", (_: Request, res: Response) => {
-    const newList = DataBase.list();
-    console.log(newList);
+    res.json(DataBase.list());
   });
   
 
