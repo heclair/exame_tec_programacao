@@ -1,7 +1,7 @@
 import express, { Request, Response } from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-import { DataBase, Student, Teacher } from "./Classes";
+import { DataBase, People, Student, Teacher } from "./Classes";
 
 dotenv.config();
 
@@ -26,8 +26,10 @@ app.get("/teacher/:name/:age", (req: Request, res: Response) => {
 });
 
 app.get("/", (_: Request, res: Response) => {
-    
-});
+    const newList = DataBase.list();
+    console.log(newList);
+  });
+  
 
 //aceita qualquer método HTTP ou URL
 app.use((_: Request, res: Response) =>
