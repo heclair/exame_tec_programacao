@@ -13,15 +13,20 @@ app.use(express.json());
 app.listen(PORT, () => console.log(`Rodando na porta ${PORT}...`));
 
 app.get("/student/:name", (req: Request, res: Response) => {
-//completar
+    const studentName = req.params.name;
+    const newStudent = new Student (studentName);
+    res.json(newStudent.toJSON());
 });
 
 app.get("/teacher/:name/:age", (req: Request, res: Response) => {
-//completar
+    const teacherName = req.params.name;
+    const teacherAge = parseInt(req.params.age);
+    const newTeacher = new Teacher(teacherName,teacherAge);
+    res.json(newTeacher.toJSON());
 });
 
 app.get("/", (_: Request, res: Response) => {
-    res.json({ message: "Rodando" });
+    
 });
 
 //aceita qualquer método HTTP ou URL
